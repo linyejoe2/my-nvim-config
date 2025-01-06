@@ -51,3 +51,20 @@ vim.keymap.set('n', '<C-S-Right>', 'gh', { noremap = true, silent = true }) -- E
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap = true, silent = true })
 
+-- Re write :w with <C-s> from vscode
+vim.keymap.set('n', "<C-s>", ":w<CR>")
+vim.keymap.set('v', "<C-s>", "<esc>:w<CR>")
+vim.keymap.set('i', "<C-s>", "<esc>:w<CR>")
+vim.keymap.set('s', "<C-s>", "<esc>:w<CR>")
+
+
+-- Re write gg<S-v>G with <C-a> from vscode
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+vim.keymap.set("v", "<C-a>", "<esc>gg<S-v>G")
+vim.keymap.set("i", "<C-a>", "<esc>gg<S-v>G")
+vim.keymap.set("s", "<C-a>", "<esc>gg<S-v>G")
+
+-- Re write dd with <C-S-k> from vscode
+vim.keymap.set("n", "<C-K>", "dd")
+
+
