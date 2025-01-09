@@ -1,7 +1,7 @@
 print("load toggleterm")
 
 require("toggleterm").setup{
-  size = 8,
+  size = 12,
   open_mapping = [[<C-\>]],
   direction = 'horizontal',  -- 使用浮動終端
   close_on_exit = true,     -- 當終端退出時自動關閉窗口

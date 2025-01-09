@@ -53,8 +53,19 @@ require("lazy").setup({
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		-- install jsregexp (optional!).
 		build = "make install_jsregexp"
-	}
-  },
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && npm install && git restore .",
+		-- or if you use yarn: (I have not checked this, I use npm)
+		-- build = "cd app && yarn install && git restore .",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+},
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },

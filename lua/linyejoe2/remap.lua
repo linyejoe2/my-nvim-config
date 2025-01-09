@@ -65,6 +65,4 @@ vim.keymap.set("i", "<C-a>", "<esc>gg<S-v>G")
 vim.keymap.set("s", "<C-a>", "<esc>gg<S-v>G")
 
 -- Re write dd with <C-S-k> from vscode
-vim.keymap.set("n", "<C-K>", "dd")
-
-
+-- vim.keymap.set("n", "C-S-K>", "dd")
