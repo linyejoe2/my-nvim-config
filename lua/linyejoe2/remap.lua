@@ -25,7 +25,11 @@ vim.keymap.set("x", "<leader>p", "\"_dp")
 
 -- linyejoe2
 
-vim.keymap.set("n", "<C-A-l>", "<C-w>l")
+vim.keymap.set("n", "<leader>s", ":echo 'adsf'<CR>")
+vim.keymap.set("n", ",", "<C-u>zz")
+vim.keymap.set("n", ".", "<C-d>zz")
+
+vim.keymap.set("n", "<C-A-l", "<C-w>l")
 vim.keymap.set("n", "<C-A-h>", "<C-w>h")
 vim.keymap.set("n", "<C-A-j>", "<C-w>j")
 vim.keymap.set("n", "<C-A-k>", "<C-w>k")
