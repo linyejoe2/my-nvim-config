@@ -35,6 +35,10 @@ vim.keymap.set("n", ",", "<End>")
 
 vim.keymap.set("n", "j", "k")
 vim.keymap.set("n", "k", "j")
+vim.keymap.set("v", "j", "k")
+vim.keymap.set("v", "k", "j")
+vim.keymap.set("s", "j", "k")
+vim.keymap.set("s", "k", "j")
 
 vim.keymap.set("n", "<C-A-l>", "<C-w>l")
 vim.keymap.set("n", "<C-A-h>", "<C-w>h")
