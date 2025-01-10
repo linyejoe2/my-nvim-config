@@ -28,6 +28,7 @@ vim.keymap.set("x", "<leader>p", "\"_dp")
 vim.keymap.set("n", "<leader>s", ":echo 'adsf'<CR>")
 vim.keymap.set("n", "<A-m>", "<C-u>zz")
 vim.keymap.set("n", "<A-,>", "<C-d>zz")
+vim.keymap.set("n", "<A-.>", "")
 
 vim.keymap.set("n", "m", "<Home>")
 vim.keymap.set("n", ",", "<End>")
