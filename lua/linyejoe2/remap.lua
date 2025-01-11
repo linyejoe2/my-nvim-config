@@ -2,6 +2,8 @@ print("load linyejoe2.remap")
 
 require("linyejoe2.customFunction")
 
+-- n, v, i, x, s, t, c
+
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<C-c>", '"+y')
@@ -23,6 +25,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", "\"_dp")
 
+-- Oil
+vim.keymap.set("n", "<leader>-", ":Oil<CR>")
+vim.keymap.set("v", "<leader>-", ":Oil<CR>")
+
 -- linyejoe2
 
 vim.keymap.set("v", "<Tab>", ">gv")
@@ -43,10 +49,10 @@ vim.keymap.set("v", "k", "j")
 vim.keymap.set("s", "j", "k")
 vim.keymap.set("s", "k", "j")
 
-vim.keymap.set("i", "<A-h>", "Left")
-vim.keymap.set("i", "<A-j>", "Up")
-vim.keymap.set("i", "<A-k>", "Down")
-vim.keymap.set("i", "<A-l>", "Right")
+vim.keymap.set("i", "<A-h>", "<Left>")
+vim.keymap.set("i", "<A-j>", "<Up>")
+vim.keymap.set("i", "<A-k>", "<Down>")
+vim.keymap.set("i", "<A-l>", "<Right>")
 
 vim.keymap.set("n", "<C-A-l>", "<C-w>l")
 vim.keymap.set("n", "<C-A-h>", "<C-w>h")

@@ -37,6 +37,7 @@ require("lazy").setup({
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
 	{ 'mg979/vim-visual-multi', branch = 'master', config = function ()
 		vim.g.VM_maps = {
 			["Find Under"] = '<C-n>',
@@ -65,6 +66,15 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
+	{
+	  'stevearc/oil.nvim',
+	  ---@module 'oil'
+	  ---@type oil.SetupOpts
+	  opts = {},
+	  -- Optional dependencies
+	  -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
+	  dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+	}
 },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
