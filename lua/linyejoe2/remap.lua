@@ -25,6 +25,9 @@ vim.keymap.set("x", "<leader>p", "\"_dp")
 
 -- linyejoe2
 
+vim.keymap.set("v", "<Tab>", ">gv")
+vim.keymap.set("v", "<S-Tab>", "<gv")
+
 vim.keymap.set("n", "<leader>s", ":echo 'adsf'<CR>")
 vim.keymap.set("n", "<A-m>", "<C-u>zz")
 vim.keymap.set("n", "<A-,>", "<C-d>zz")
