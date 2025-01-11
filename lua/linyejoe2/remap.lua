@@ -43,6 +43,11 @@ vim.keymap.set("v", "k", "j")
 vim.keymap.set("s", "j", "k")
 vim.keymap.set("s", "k", "j")
 
+vim.keymap.set("i", "<A-h>", "Left")
+vim.keymap.set("i", "<A-j>", "Up")
+vim.keymap.set("i", "<A-k>", "Down")
+vim.keymap.set("i", "<A-l>", "Right")
+
 vim.keymap.set("n", "<C-A-l>", "<C-w>l")
 vim.keymap.set("n", "<C-A-h>", "<C-w>h")
 vim.keymap.set("n", "<C-A-k>", "<C-w>j")
