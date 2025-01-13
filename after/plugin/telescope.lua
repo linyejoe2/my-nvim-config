@@ -16,12 +16,28 @@ require("telescope").setup{
         defaults = {
                 file_ignore_patterns = {
                         "node_modules"
+				},
+				layout_config = {
+					preview_cutoff = 3,
+				},
+				mappings = {
+					i = {
+						["<A-k>"] = "move_selection_next",
+						["<A-j>"] = "move_selection_previous",
+						["<C-p>"] = require('telescope.actions.layout').toggle_preview,
+						-- ["<C-h>"] = "preview_scrolling_left",
+						["<C-j>"] = "preview_scrolling_up",
+						["<C-k>"] = "preview_scrolling_down",
+						-- ["<C-l>"] = "preview_scrolling_right"
+					},
+					-- n = {
+					-- }
 				}
         }
 }
 
 require'nvim-web-devicons'.setup{
-	 override = {
+override = {
 	  zsh = {
 		icon = "",
 		color = "#428850",

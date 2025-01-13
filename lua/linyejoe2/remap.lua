@@ -13,8 +13,8 @@ vim.keymap.set("n", '<leader>==', 'm`gg=G``')
 
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -41,6 +41,8 @@ vim.keymap.set("n", "<A-.>", "")
 
 vim.keymap.set("n", "m", "<Home>")
 vim.keymap.set("n", ",", "<End>")
+vim.keymap.set("i", "<A-m>", "<Home>")
+vim.keymap.set("i", "<A-,>", "<End>")
 
 vim.keymap.set("n", "j", "k")
 vim.keymap.set("n", "k", "j")
