@@ -5,7 +5,12 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fs', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
-vim.keymap.set('n', '<leader>bl', builtin.buffers, {desc = 'Lists open buffers in current neovim instance'})
+vim.keymap.set('n', '<leader>lb', builtin.buffers, {desc = 'Lists open buffers in current neovim instance'})
+vim.keymap.set('n', '<leader>lc', builtin.git_bcommits, {desc = 'Lists git commits with diff preview'})
+vim.keymap.set('n', '<leader>lf', builtin.treesitter, {desc = 'Lists Function names, variables, from Treesitter!'})
+vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, {desc = 'Goto the definition of the word under the cursor'})
+vim.keymap.set('n', '<leader>li', builtin.lsp_implementations, {desc = 'Goto the implementation of the word under the cursor'})
+vim.keymap.set('n', '<leader>lt', builtin.lsp_type_definitions, {desc = 'Goto the definition of the type of the word under the cursor'})
 
 require("telescope").setup{
         defaults = {

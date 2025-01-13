@@ -38,6 +38,10 @@ require("lazy").setup({
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
 	{ "nvim-tree/nvim-web-devicons", opts = {} },
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	},
 	{ 'mg979/vim-visual-multi', branch = 'master', config = function ()
 		vim.g.VM_maps = {
 			["Find Under"] = '<C-n>',
