@@ -16,21 +16,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+vim.cmd [[
+  autocmd BufWritePre *.md silent! :%!prettier --stdin-filepath %
+]]
 

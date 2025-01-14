@@ -47,17 +47,17 @@ require("lazy").setup({
 	{ "nvim-telescope/telescope.nvim", tag = "0.1.8" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "mbbill/undotree" },
-	{ 'akinsho/toggleterm.nvim', version = "*", config = true },
-	{ "numToStr/Comment.nvim" },
-	{'neovim/nvim-lspconfig'},
-	{'hrsh7th/cmp-nvim-lsp'},
-	{'hrsh7th/nvim-cmp'},
-	{ "nvim-tree/nvim-web-devicons", opts = {} },
-	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons' }
-	},
-	{ 'mg979/vim-visual-multi', branch = 'master', config = function ()
+		{ 'akinsho/toggleterm.nvim', version = "*", config = true },
+		{ "numToStr/Comment.nvim" },
+		{'hrsh7th/cmp-nvim-lsp'},
+		{'hrsh7th/nvim-cmp'},
+		{ "nvim-tree/nvim-web-devicons", opts = {} },
+		-- {"pretteier/vim-prettier", build=  "npm install"},
+		{
+			'nvim-lualine/lualine.nvim',
+			dependencies = { 'nvim-tree/nvim-web-devicons' }
+		},
+		{ 'mg979/vim-visual-multi', branch = 'master', config = function ()
 		vim.g.VM_maps = {
 			["Find Under"] = '<C-n>',
 			["Add Cursor Down"] = '<C-Down>', -- Example of remapping Add Cursor Down
