@@ -29,6 +29,9 @@ vim.keymap.set("x", "<leader>p", "\"_dp")
 vim.keymap.set("n", "<leader>-", ":Oil<CR>")
 vim.keymap.set("v", "<leader>-", ":Oil<CR>")
 
+-- Avante
+-- vim.keymap.set("n", "<leader>a", "")
+
 -- linyejoe2
 
 vim.keymap.set("v", "<Tab>", ">gv")
@@ -97,3 +100,6 @@ vim.keymap.set("s", "<C-a>", "<esc>gg<S-v>G")
 
 -- Re write dd with <C-S-k> from vscode
 -- vim.keymap.set("n", "C-S-K>", "dd")
+
+vim.keymap.set("n", "<C-q>", "<C-z>")
+vim.keymap.set("n", "<C-z>", "<C-q>")
