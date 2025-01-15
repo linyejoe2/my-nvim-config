@@ -62,7 +62,9 @@ require("lazy").setup({
 
 				conform.setup({
 					formatters_by_ft = {
-						markdown = { "markdownlint-cli2" }
+						markdown = { "markdownlint-cli2" },
+						json = { "prettier" },
+						yaml = { "prettier" }
 					},
 					format_on_save = {
 						lsp_fallback = true,
@@ -78,7 +80,9 @@ require("lazy").setup({
 				local lint = require("lint")
 
 				lint.linters_by_ft = {
-					markdown = { "markdownlint-cli2" }
+					markdown = { "markdownlint-cli2" },
+					json = { "biomejs" },
+					-- yaml = { "biomejs" }
 				}
 
 				local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

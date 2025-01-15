@@ -18,7 +18,8 @@ vim.keymap.set('n', '<leader>lt', builtin.lsp_type_definitions,
 require("telescope").setup {
 	defaults = {
 		file_ignore_patterns = {
-			"node_modules"
+			"node_modules",
+			"^.*.min.*$"
 		},
 		layout_config = {
 			preview_cutoff = 3,
