@@ -101,5 +101,8 @@ vim.keymap.set("s", "<C-a>", "<esc>gg<S-v>G")
 -- Re write dd with <C-S-k> from vscode
 -- vim.keymap.set("n", "C-S-K>", "dd")
 
-vim.keymap.set("n", "<C-q>", "<C-z>")
+
+-- Re write C-q, C-z
+-- vim.keymap.set("n", "<C-q>", "<C-z>")
 vim.keymap.set("n", "<C-z>", "<C-q>")
+vim.keymap.set("n", "<leader>q", ":q<cr>")

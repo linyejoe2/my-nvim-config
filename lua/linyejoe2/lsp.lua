@@ -38,7 +38,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
-	ensure_installed = { 'lua_ls', 'gopls', 'ts_ls', 'prettier' },
+	ensure_installed = { 'lua_ls', 'gopls', 'ts_ls' },
 	handlers = {
 		function(server_name)
 			require('lspconfig')[server_name].setup({})
@@ -98,14 +98,4 @@ require 'lspconfig'.lua_ls.setup {
 	settings = {
 		Lua = {}
 	},
-	on_attach = function(client, bufnr)
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end,
-			})
-		end
-	end,
 }
