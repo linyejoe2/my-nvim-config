@@ -52,7 +52,12 @@ require("lazy").setup({
 		{ 'hrsh7th/cmp-nvim-lsp' },
 		{ 'hrsh7th/nvim-cmp' },
 		{ "nvim-tree/nvim-web-devicons",      opts = {} },
-		-- {"pretteier/vim-prettier", build=  "npm install"},
+		{
+			"lewis6991/gitsigns.nvim",
+			config = function()
+				require('gitsigns').setup()
+			end
+		},
 		{
 			"kevinhwang91/nvim-ufo",
 			dependencies = { "kevinhwang91/promise-async" },
