@@ -25,6 +25,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", "\"_dp")
 
+vim.keymap.set("n", "Q", "<nop>", { desc = "Disable record marcro feature." })
+
 -- Oil
 vim.keymap.set("n", "<leader>-", ":Oil<CR>")
 vim.keymap.set("v", "<leader>-", ":Oil<CR>")
