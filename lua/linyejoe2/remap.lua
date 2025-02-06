@@ -108,3 +108,6 @@ vim.keymap.set("s", "<C-a>", "<esc>gg<S-v>G")
 -- vim.keymap.set("n", "<C-q>", "<C-z>")
 vim.keymap.set("n", "<C-z>", "<C-q>")
 vim.keymap.set("n", "<leader>q", ":q<cr>")
+
+-- Add new line without change mode
+vim.keymap.set("n", "<C-o>", "o<Esc>")
