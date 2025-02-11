@@ -68,6 +68,12 @@ require('lspconfig').gopls.setup {
 	end,
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require "lspconfig".html.setup {
+	capabilities = capabilities
+}
+
 require 'lspconfig'.lua_ls.setup {
 	on_init = function(client)
 		local path = client.workspace_folders[1].name
