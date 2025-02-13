@@ -59,6 +59,23 @@ require("lazy").setup({
 			end
 		},
 		{
+			"github/copilot.vim",
+			config = function()
+				vim.g.copilot_filetypes = {
+					["*"] = false,
+					["javascript"] = true,
+					["typescript"] = true,
+					["lua"] = false,
+					["rust"] = true,
+					["c"] = true,
+					["c#"] = true,
+					["c++"] = true,
+					["go"] = true,
+					["python"] = true,
+				}
+			end
+		},
+		{
 			"kevinhwang91/nvim-ufo",
 			dependencies = { "kevinhwang91/promise-async" },
 			config = function()

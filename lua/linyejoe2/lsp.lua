@@ -73,6 +73,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require "lspconfig".html.setup {
 	capabilities = capabilities
 }
+require 'lspconfig'.cssls.setup {
+	capabilities = capabilities,
+}
+require 'lspconfig'.jsonls.setup {
+	capabilities = capabilities,
+}
 
 require 'lspconfig'.lua_ls.setup {
 	on_init = function(client)
