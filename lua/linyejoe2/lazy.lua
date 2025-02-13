@@ -53,6 +53,21 @@ require("lazy").setup({
 		{ 'hrsh7th/nvim-cmp' },
 		{ "nvim-tree/nvim-web-devicons",      opts = {} },
 		{
+			"ray-x/go.nvim",
+			dependencies = { -- optional packages
+				"ray-x/guihua.lua",
+				"neovim/nvim-lspconfig",
+				"nvim-treesitter/nvim-treesitter",
+			},
+			config = function()
+				require("go").setup()
+				require("go.format").goimports()
+			end,
+			event = { "CmdlineEnter" },
+			ft = { "go", 'gomod' },
+			build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+		},
+		{
 			"lewis6991/gitsigns.nvim",
 			config = function()
 				require('gitsigns').setup()
@@ -61,6 +76,11 @@ require("lazy").setup({
 		{
 			"github/copilot.vim",
 			config = function()
+				vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+					expr = true,
+					replace_keycodes = false
+				})
+				vim.g.copilot_no_tab_map = true
 				vim.g.copilot_filetypes = {
 					["*"] = false,
 					["javascript"] = true,
