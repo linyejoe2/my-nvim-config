@@ -53,6 +53,11 @@ require("lazy").setup({
 		{ 'hrsh7th/nvim-cmp' },
 		{ "nvim-tree/nvim-web-devicons",      opts = {} },
 		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = true
+		},
+		{
 			"ray-x/go.nvim",
 			dependencies = { -- optional packages
 				"ray-x/guihua.lua",
