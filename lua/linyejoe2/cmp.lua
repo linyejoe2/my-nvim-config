@@ -11,7 +11,7 @@ cmp.setup({
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -33,6 +33,8 @@ cmp.setup({
 				cmp.select_next_item()
 			elseif has_words_before() then
 				cmp.complete()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
 			else
 				fallback()
 			end

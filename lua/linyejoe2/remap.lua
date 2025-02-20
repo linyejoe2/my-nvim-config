@@ -111,3 +111,11 @@ vim.keymap.set("n", "<leader>q", ":q<cr>")
 
 -- Add new line without change mode
 vim.keymap.set("n", "<A-o>", "o<Esc>")
+
+
+-- Set key mappings for normal and insert mode
+vim.keymap.set("n", "<A-s>", Select_word_to_comma, { noremap = true, silent = true })
+vim.keymap.set("i", "<A-s>", function()
+	vim.cmd('stopinsert') -- Exit insert mode before executing the selection
+	Select_word_to_comma()
+end, { noremap = true, silent = false })
