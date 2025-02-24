@@ -40,13 +40,22 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	-- Replace the language servers listed here
 	-- with the ones you want to install
-	ensure_installed = { 'lua_ls', 'gopls', 'ts_ls', 'biome' },
+	ensure_installed = { 'lua_ls', 'gopls', 'ts_ls', 'biome', "clangd" },
 	handlers = {
 		function(server_name)
 			require('lspconfig')[server_name].setup({})
 		end,
 	},
 })
+
+require("lspconfig").clangd.setup {
+	-- on_attach = on_attach,
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
+}
 
 require('lspconfig').gopls.setup {
 	settings = {
