@@ -156,7 +156,8 @@ require("lazy").setup({
 					formatters_by_ft = {
 						markdown = { "markdownlint-cli2" },
 						json = { "prettier" },
-						yaml = { "prettier" }
+						yaml = { "prettier" },
+						javascript = { "prettierd", "prettier", stop_after_first = true },
 					},
 					format_on_save = {
 						lsp_fallback = true,
