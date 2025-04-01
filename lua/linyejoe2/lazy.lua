@@ -158,6 +158,7 @@ require("lazy").setup({
 						json = { "prettier" },
 						yaml = { "prettier" },
 						javascript = { "prettierd", "prettier", stop_after_first = true },
+						typescript = { "prettierd", "prettier", stop_after_first = true },
 					},
 					format_on_save = {
 						lsp_fallback = true,
@@ -176,6 +177,8 @@ require("lazy").setup({
 					markdown = { "markdownlint-cli2" },
 					json = { "biomejs" },
 					-- yaml = { "biomejs" }
+					javascript = { "biomejs" },
+					typescript = { "biomejs" },
 				}
 
 				local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
