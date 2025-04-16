@@ -150,7 +150,48 @@ require("lazy").setup({
 			opts = {},
 			event = { "BufReadPre", "BufNewFile" },
 			config = function()
+				local function detect_conform_setting()
+					local editorconfig_path = vim.fn.getcwd() .. "/.editorconfig"
+
+					if vim.fn.filereadable(editorconfig_path) == 1 then
+						for line in io.lines(editorconfig_path) do
+							-- 去除首尾空白，並且忽略註解行
+							line = line:match("^%s*(.-)%s*$")
+							if #line > 0 and not line:match("^%s*#") then
+								-- 匹配 key=value 格式
+								local key, val = line:match("^(%S+)%s*=%s*(.+)$")
+
+
+								-- 判斷 Conform 是否為 false
+								if key == "Conform" and val == "false" then
+									print("Conform is disabled")
+									return false
+								end
+							end
+						end
+					end
+
+					-- 若未找到 Conform，默認為啟用
+					print("Conform is enabled")
+					return true
+				end
+
 				local conform = require("conform")
+
+				local enable_conform = detect_conform_setting()
+
+				-- 💡 使用者手動控制開關
+				vim.api.nvim_create_user_command("ConformToggle", function()
+					enable_conform = not enable_conform
+					local status = enable_conform and "✅ 啟用 conform" or "❌ 停用 conform（使用 LSP）"
+					vim.notify("[ToggleConform] 狀態切換: " .. status, vim.log.levels.INFO)
+				end, {})
+
+				-- 👀 顯示目前狀態
+				vim.api.nvim_create_user_command("ConformStatus", function()
+					local msg = enable_conform and "🟢 conform 啟用中" or "🔴 conform 已停用（使用 LSP）"
+					vim.notify(msg, vim.log.levels.INFO)
+				end, {})
 
 				conform.setup({
 					formatters_by_ft = {
@@ -160,10 +201,20 @@ require("lazy").setup({
 						javascript = { "prettierd", "prettier", stop_after_first = true },
 						typescript = { "prettierd", "prettier", stop_after_first = true },
 					},
-					format_on_save = {
-						lsp_fallback = true,
-						async = false,
-					},
+					format_on_save = function()
+						return enable_conform and {
+							timeout_ms = 500,
+							lsp_fallback = true,
+						} or false
+					end,
+				})
+
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					callback = function(args)
+						if not enable_conform then
+							vim.lsp.buf.format({ bufnr = args.buf })
+						end
+					end,
 				})
 			end,
 		},
