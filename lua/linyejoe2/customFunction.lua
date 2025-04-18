@@ -51,3 +51,29 @@ function Select_word_to_comma()
 		end
 	end
 end
+
+function Detect_format_on_save_setting()
+	local editorconfig_path = vim.fn.getcwd() .. "/.editorconfig"
+
+	if vim.fn.filereadable(editorconfig_path) == 1 then
+		for line in io.lines(editorconfig_path) do
+			-- 去除首尾空白，並且忽略註解行
+			line = line:match("^%s*(.-)%s*$")
+			if #line > 0 and not line:match("^%s*#") then
+				-- 匹配 key=value 格式
+				local key, val = line:match("^(%S+)%s*=%s*(.+)$")
+
+
+				-- 判斷 Format_on_save 是否為 false
+				if key == "Format_on_save" and val == "false" then
+					print("Format_on_save is disabled")
+					return false
+				end
+			end
+		end
+	end
+
+	-- 若未找到 Conform，默認為啟用
+	print("Format_on_save is enabled")
+	return true
+end

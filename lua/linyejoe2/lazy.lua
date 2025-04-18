@@ -119,6 +119,8 @@ require("lazy").setup({
 					["go"] = true,
 					["python"] = true,
 				}
+
+				vim.api.nvim_command('Copilot disable')
 			end
 		},
 		{
@@ -178,7 +180,9 @@ require("lazy").setup({
 
 				local conform = require("conform")
 
-				local enable_conform = detect_conform_setting()
+				local format_on_save = Detect_format_on_save_setting()
+
+				local enable_conform = detect_conform_setting() and format_on_save
 
 				-- 💡 使用者手動控制開關
 				vim.api.nvim_create_user_command("ConformToggle", function()
@@ -211,7 +215,7 @@ require("lazy").setup({
 
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					callback = function(args)
-						if not enable_conform then
+						if not enable_conform and format_on_save then
 							vim.lsp.buf.format({ bufnr = args.buf })
 						end
 					end,
