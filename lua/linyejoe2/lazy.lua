@@ -40,18 +40,18 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
 	spec = {
 		-- add your plugins here
-		{ "rose-pine/neovim",                 name = "rose-pine" },
+		{ "rose-pine/neovim",                name = "rose-pine" },
 		{ 'williamboman/mason.nvim' },
-		{ 'williamboman/mason-lspconfig.nvim' },
+		{ 'mason-org/mason-lspconfig.nvim' },
 		{ "neovim/nvim-lspconfig" },
-		{ "nvim-telescope/telescope.nvim",    tag = "0.1.8" },
-		{ "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },
+		{ "nvim-telescope/telescope.nvim",   tag = "0.1.8" },
+		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 		{ "mbbill/undotree" },
-		{ 'akinsho/toggleterm.nvim',          version = "*",      config = true },
+		{ 'akinsho/toggleterm.nvim',         version = "*",      config = true },
 		{ "numToStr/Comment.nvim" },
 		{ 'hrsh7th/cmp-nvim-lsp' },
 		{ 'hrsh7th/nvim-cmp' },
-		{ "nvim-tree/nvim-web-devicons",      opts = {} },
+		{ "nvim-tree/nvim-web-devicons",     opts = {} },
 		{
 			"windwp/nvim-ts-autotag",
 			config = function()
@@ -310,61 +310,61 @@ require("lazy").setup({
 			-- dependencies = { { "echasnovski/mini.icons", opts = {} } },
 			dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 		},
-		loadAvanteFlag and {
-			"yetone/avante.nvim",
-			event = "VeryLazy",
-			lazy = false,
-			version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
-			opts = {
-				-- add any opts here
-				provider = "ollama",
-				vendors = {
-					ollama = {
-						__inherited_from = "openai",
-						api_key_name = "",
-						endpoint = "http://172.22.16.1:11434/v1",
-						model = "gemma2:27b",
-					},
-				},
-			},
-			-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-			build = "make",
-			-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-			dependencies = {
-				"stevearc/dressing.nvim",
-				"nvim-lua/plenary.nvim",
-				"MunifTanjim/nui.nvim",
-				--- The below dependencies are optional,
-				"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-				-- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-				-- "zbirenbaum/copilot.lua", -- for providers='copilot'
-				{
-					-- support for image pasting
-					"HakonHarnes/img-clip.nvim",
-					event = "VeryLazy",
-					opts = {
-						-- recommended settings
-						default = {
-							embed_image_as_base64 = false,
-							prompt_for_file_name = false,
-							drag_and_drop = {
-								insert_mode = true,
-							},
-							-- required for Windows users
-							use_absolute_path = true,
-						},
-					},
-				},
-				{
-					-- Make sure to set this up properly if you have lazy=true
-					'MeanderingProgrammer/render-markdown.nvim',
-					opts = {
-						file_types = { "markdown", "Avante" },
-					},
-					ft = { "markdown", "Avante" },
-				},
-			},
-		} or nil,
+		-- loadAvanteFlag and {
+		-- 	"yetone/avante.nvim",
+		-- 	event = "VeryLazy",
+		-- 	lazy = false,
+		-- 	version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+		-- 	opts = {
+		-- 		-- add any opts here
+		-- 		provider = "ollama",
+		-- 		vendors = {
+		-- 			ollama = {
+		-- 				__inherited_from = "openai",
+		-- 				api_key_name = "",
+		-- 				endpoint = "http://172.22.16.1:11434/v1",
+		-- 				model = "gemma2:27b",
+		-- 			},
+		-- 		},
+		-- 	},
+		-- 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+		-- 	build = "make",
+		-- 	-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+		-- 	dependencies = {
+		-- 		"stevearc/dressing.nvim",
+		-- 		"nvim-lua/plenary.nvim",
+		-- 		"MunifTanjim/nui.nvim",
+		-- 		--- The below dependencies are optional,
+		-- 		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+		-- 		-- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+		-- 		-- "zbirenbaum/copilot.lua", -- for providers='copilot'
+		-- 		{
+		-- 			-- support for image pasting
+		-- 			"HakonHarnes/img-clip.nvim",
+		-- 			event = "VeryLazy",
+		-- 			opts = {
+		-- 				-- recommended settings
+		-- 				default = {
+		-- 					embed_image_as_base64 = false,
+		-- 					prompt_for_file_name = false,
+		-- 					drag_and_drop = {
+		-- 						insert_mode = true,
+		-- 					},
+		-- 					-- required for Windows users
+		-- 					use_absolute_path = true,
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 		{
+		-- 			-- Make sure to set this up properly if you have lazy=true
+		-- 			'MeanderingProgrammer/render-markdown.nvim',
+		-- 			opts = {
+		-- 				file_types = { "markdown", "Avante" },
+		-- 			},
+		-- 			ft = { "markdown", "Avante" },
+		-- 		},
+		-- 	},
+		-- } or nil,
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
